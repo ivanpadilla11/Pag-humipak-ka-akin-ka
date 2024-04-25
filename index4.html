@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+
+</head>
+<style>
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
+  overflow: hidden;
+}
+
+.stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  transform: rotate(-45deg);
+}
+
+.star {
+  --star-color: var(--primary-color);
+  --star-tail-length: 6em;
+  --star-tail-height: 2px;
+  --star-width: calc(var(--star-tail-length) / 6);
+  --fall-duration: 9s;
+  --tail-fade-duration: var(--fall-duration);
+  position: absolute;
+  top: var(--top-offset);
+  left: 0;
+  width: var(--star-tail-length);
+  height: var(--star-tail-height);
+  color: var(--star-color);
+  background: linear-gradient(45deg, currentColor, transparent);
+  border-radius: 50%;
+  filter: drop-shadow(0 0 6px currentColor);
+  transform: translate3d(104em, 0, 0);
+  animation: fall var(--fall-duration) var(--fall-delay) linear infinite, tail-fade var(--tail-fade-duration) var(--fall-delay) ease-out infinite;
+}
+@media screen and (max-width: 750px) {
+  .star {
+    animation: fall var(--fall-duration) var(--fall-delay) linear infinite;
+  }
+}
+.star:nth-child(1) {
+  --star-tail-length: 6.32em;
+  --top-offset: 92.2vh;
+  --fall-duration: 11.994s;
+  --fall-delay: 4.712s;
+}
+.star:nth-child(2) {
+  --star-tail-length: 5.34em;
+  --top-offset: 46.9vh;
+  --fall-duration: 10.03s;
+  --fall-delay: 9.618s;
+}
+.star:nth-child(3) {
+  --star-tail-length: 7.36em;
+  --top-offset: 44.88vh;
+  --fall-duration: 10.991s;
+  --fall-delay: 2.382s;
+}
+.star:nth-child(4) {
+  --star-tail-length: 6.39em;
+  --top-offset: 61.1vh;
+  --fall-duration: 9.428s;
+  --fall-delay: 6.243s;
+}
+.star:nth-child(5) {
+  --star-tail-length: 6.49em;
+  --top-offset: 31.9vh;
+  --fall-duration: 10.374s;
+  --fall-delay: 0.738s;
+}
+.star:nth-child(6) {
+  --star-tail-length: 5.86em;
+  --top-offset: 15.82vh;
+  --fall-duration: 8.88s;
+  --fall-delay: 1.438s;
+}
+.star:nth-child(7) {
+  --star-tail-length: 7.07em;
+  --top-offset: 37.45vh;
+  --fall-duration: 9.032s;
+  --fall-delay: 6.067s;
+}
+.star:nth-child(8) {
+  --star-tail-length: 5.73em;
+  --top-offset: 43.12vh;
+  --fall-duration: 8.256s;
+  --fall-delay: 4.795s;
+}
+.star:nth-child(9) {
+  --star-tail-length: 7.25em;
+  --top-offset: 38.84vh;
+  --fall-duration: 8.107s;
+  --fall-delay: 7.076s;
+}
+.star:nth-child(10) {
+  --star-tail-length: 5.4em;
+  --top-offset: 83.52vh;
+  --fall-duration: 9.049s;
+  --fall-delay: 9.581s;
+}
+.star:nth-child(11) {
+  --star-tail-length: 6.63em;
+  --top-offset: 60.84vh;
+  --fall-duration: 10.479s;
+  --fall-delay: 6.468s;
+}
+.star:nth-child(12) {
+  --star-tail-length: 5.66em;
+  --top-offset: 11.55vh;
+  --fall-duration: 8.673s;
+  --fall-delay: 7.361s;
+}
+.star:nth-child(13) {
+  --star-tail-length: 5.01em;
+  --top-offset: 96.17vh;
+  --fall-duration: 7.185s;
+  --fall-delay: 2.04s;
+}
+.star:nth-child(14) {
+  --star-tail-length: 6.81em;
+  --top-offset: 56.08vh;
+  --fall-duration: 6.518s;
+  --fall-delay: 4.805s;
+}
+.star:nth-child(15) {
+  --star-tail-length: 5.45em;
+  --top-offset: 73.36vh;
+  --fall-duration: 6.296s;
+  --fall-delay: 8.164s;
+}
+.star:nth-child(16) {
+  --star-tail-length: 6.23em;
+  --top-offset: 30.23vh;
+  --fall-duration: 11.169s;
+  --fall-delay: 5.297s;
+}
+.star:nth-child(17) {
+  --star-tail-length: 5.86em;
+  --top-offset: 50.13vh;
+  --fall-duration: 9.655s;
+  --fall-delay: 4.574s;
+}
+.star:nth-child(18) {
+  --star-tail-length: 6.15em;
+  --top-offset: 98.55vh;
+  --fall-duration: 9.453s;
+  --fall-delay: 4.451s;
+}
+.star:nth-child(19) {
+  --star-tail-length: 7.5em;
+  --top-offset: 78.7vh;
+  --fall-duration: 9.964s;
+  --fall-delay: 1.781s;
+}
+.star:nth-child(20) {
+  --star-tail-length: 5.22em;
+  --top-offset: 5.68vh;
+  --fall-duration: 8.009s;
+  --fall-delay: 0.479s;
+}
+.star:nth-child(21) {
+  --star-tail-length: 7.48em;
+  --top-offset: 50.66vh;
+  --fall-duration: 10.708s;
+  --fall-delay: 5.936s;
+}
+.star:nth-child(22) {
+  --star-tail-length: 5.18em;
+  --top-offset: 19.19vh;
+  --fall-duration: 8.145s;
+  --fall-delay: 5.566s;
+}
+.star:nth-child(23) {
+  --star-tail-length: 5.34em;
+  --top-offset: 18.41vh;
+  --fall-duration: 8.42s;
+  --fall-delay: 3.849s;
+}
+.star:nth-child(24) {
+  --star-tail-length: 6.35em;
+  --top-offset: 27.74vh;
+  --fall-duration: 6.146s;
+  --fall-delay: 5.239s;
+}
+.star:nth-child(25) {
+  --star-tail-length: 5.13em;
+  --top-offset: 91.32vh;
+  --fall-duration: 9.909s;
+  --fall-delay: 8.137s;
+}
+.star:nth-child(26) {
+  --star-tail-length: 6.91em;
+  --top-offset: 76.39vh;
+  --fall-duration: 8.439s;
+  --fall-delay: 8.566s;
+}
+.star:nth-child(27) {
+  --star-tail-length: 6.82em;
+  --top-offset: 60.3vh;
+  --fall-duration: 11.382s;
+  --fall-delay: 0.125s;
+}
+.star:nth-child(28) {
+  --star-tail-length: 5em;
+  --top-offset: 94.03vh;
+  --fall-duration: 11.086s;
+  --fall-delay: 5.596s;
+}
+.star:nth-child(29) {
+  --star-tail-length: 6.7em;
+  --top-offset: 51.6vh;
+  --fall-duration: 9.386s;
+  --fall-delay: 9.482s;
+}
+.star:nth-child(30) {
+  --star-tail-length: 5.81em;
+  --top-offset: 94.87vh;
+  --fall-duration: 10.401s;
+  --fall-delay: 8.203s;
+}
+.star:nth-child(31) {
+  --star-tail-length: 5.63em;
+  --top-offset: 41.66vh;
+  --fall-duration: 7.685s;
+  --fall-delay: 2.755s;
+}
+.star:nth-child(32) {
+  --star-tail-length: 7.14em;
+  --top-offset: 17.14vh;
+  --fall-duration: 9.49s;
+  --fall-delay: 3.921s;
+}
+.star:nth-child(33) {
+  --star-tail-length: 6.94em;
+  --top-offset: 35.23vh;
+  --fall-duration: 6.168s;
+  --fall-delay: 9.886s;
+}
+.star:nth-child(34) {
+  --star-tail-length: 6.1em;
+  --top-offset: 51.08vh;
+  --fall-duration: 11.933s;
+  --fall-delay: 1.76s;
+}
+.star:nth-child(35) {
+  --star-tail-length: 5.11em;
+  --top-offset: 58.25vh;
+  --fall-duration: 7.282s;
+  --fall-delay: 6.518s;
+}
+.star:nth-child(36) {
+  --star-tail-length: 7.03em;
+  --top-offset: 11.39vh;
+  --fall-duration: 10.77s;
+  --fall-delay: 5.379s;
+}
+.star:nth-child(37) {
+  --star-tail-length: 5.24em;
+  --top-offset: 62.74vh;
+  --fall-duration: 10.241s;
+  --fall-delay: 8.918s;
+}
+.star:nth-child(38) {
+  --star-tail-length: 5.7em;
+  --top-offset: 34.59vh;
+  --fall-duration: 11.997s;
+  --fall-delay: 0.79s;
+}
+.star:nth-child(39) {
+  --star-tail-length: 5.65em;
+  --top-offset: 62.15vh;
+  --fall-duration: 8.719s;
+  --fall-delay: 2.812s;
+}
+.star:nth-child(40) {
+  --star-tail-length: 5.25em;
+  --top-offset: 62.25vh;
+  --fall-duration: 9.387s;
+  --fall-delay: 3.199s;
+}
+.star:nth-child(41) {
+  --star-tail-length: 6.61em;
+  --top-offset: 65.42vh;
+  --fall-duration: 7.706s;
+  --fall-delay: 4.53s;
+}
+.star:nth-child(42) {
+  --star-tail-length: 7.36em;
+  --top-offset: 24.23vh;
+  --fall-duration: 11.375s;
+  --fall-delay: 9.719s;
+}
+.star:nth-child(43) {
+  --star-tail-length: 5.59em;
+  --top-offset: 15.34vh;
+  --fall-duration: 11.639s;
+  --fall-delay: 3.317s;
+}
+.star:nth-child(44) {
+  --star-tail-length: 6.09em;
+  --top-offset: 74.04vh;
+  --fall-duration: 6.493s;
+  --fall-delay: 3.417s;
+}
+.star:nth-child(45) {
+  --star-tail-length: 7.29em;
+  --top-offset: 95.56vh;
+  --fall-duration: 8.065s;
+  --fall-delay: 9.935s;
+}
+.star:nth-child(46) {
+  --star-tail-length: 5.42em;
+  --top-offset: 25.63vh;
+  --fall-duration: 9.052s;
+  --fall-delay: 6.272s;
+}
+.star:nth-child(47) {
+  --star-tail-length: 5.27em;
+  --top-offset: 49.4vh;
+  --fall-duration: 11.759s;
+  --fall-delay: 7.934s;
+}
+.star:nth-child(48) {
+  --star-tail-length: 6.24em;
+  --top-offset: 7.91vh;
+  --fall-duration: 9.295s;
+  --fall-delay: 6.255s;
+}
+.star:nth-child(49) {
+  --star-tail-length: 7.41em;
+  --top-offset: 28.96vh;
+  --fall-duration: 6.116s;
+  --fall-delay: 9.046s;
+}
+.star:nth-child(50) {
+  --star-tail-length: 6.99em;
+  --top-offset: 88.94vh;
+  --fall-duration: 6.449s;
+  --fall-delay: 7.52s;
+}
+.star::before, .star::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: calc(var(--star-width) / -2);
+  width: var(--star-width);
+  height: 100%;
+  background: linear-gradient(45deg, transparent, currentColor, transparent);
+  border-radius: inherit;
+  animation: blink 2s linear infinite;
+}
+.star::before {
+  transform: rotate(45deg);
+}
+.star::after {
+  transform: rotate(-45deg);
+}
+
+@keyframes fall {
+  to {
+    transform: translate3d(-30em, 0, 0);
+  }
+}
+@keyframes tail-fade {
+  0%, 50% {
+    width: var(--star-tail-length);
+    opacity: 1;
+  }
+  70%, 80% {
+    width: 0;
+    opacity: 0.4;
+  }
+  100% {
+    width: 0;
+    opacity: 0;
+  }
+}
+@keyframes blink {
+  50% {
+    opacity: 0.6;
+  }
+}
+
+    
+</style>
+<body>
+    <div class="stars">
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+      </div>
+      
+
+      <img src="./asset/vape.jpg"
+    height="350px"
+    width="250px"/>
+            
+</body>
+</html>
